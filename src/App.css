@@ -3244,7 +3244,7 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 4;
-  overflow: hidden;
+  overflow: visible;
   transition: opacity 0.6s ease;
 }
 
@@ -3270,12 +3270,12 @@ body {
   pointer-events: auto;
   cursor: pointer;
   user-select: none;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.65));
   transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .crew-member:hover {
-  filter: drop-shadow(0 14px 24px rgba(255, 200, 59, 0.45));
+  filter: drop-shadow(0 12px 22px rgba(255, 200, 59, 0.45));
 }
 
 .character-interactive-box {
@@ -3286,7 +3286,7 @@ body {
 }
 
 /* --- ROBERT FREEMAN (GRANDDAD) ---
-   Positioned comfortably on the far left flank, fully visible from head to toe */
+   Positioned comfortably on the far left flank, scaled so his speech bubble has plenty of room below the navbar */
 .crew-member.granddad-wrapper {
   bottom: 0px;
   left: clamp(8px, 1.2vw, 20px);
@@ -3294,8 +3294,8 @@ body {
 }
 
 .crew-img.granddad-img {
-  width: clamp(125px, 13vw, 175px);
-  max-height: 76vh;
+  width: clamp(95px, 9.5vw, 135px);
+  max-height: 52vh;
   height: auto;
   display: block;
   object-fit: contain;
@@ -3303,17 +3303,17 @@ body {
 }
 
 /* --- HUEY FREEMAN ---
-   Positioned on the upper-left rooftop, shifted comfortably so his afro and face are 100% clear */
+   Positioned on the upper-left balcony, dropped down so his speech bubble sits clearly below the navbar */
 .crew-member.huey-wrapper {
-  top: clamp(100px, 13vh, 135px);
-  left: clamp(135px, 15vw, 205px);
+  top: clamp(150px, 20vh, 195px);
+  left: clamp(115px, 13vw, 175px);
   bottom: auto;
   z-index: 4;
 }
 
 .crew-img.huey-img {
-  width: clamp(105px, 11vw, 150px);
-  max-height: 35vh;
+  width: clamp(85px, 8.5vw, 120px);
+  max-height: 25vh;
   height: auto;
   display: block;
   object-fit: contain;
@@ -3321,7 +3321,7 @@ body {
 }
 
 /* --- RILEY FREEMAN ---
-   Positioned comfortably on the far right flank, fully visible from head to sneakers */
+   Positioned comfortably on the far right flank, scaled so his speech bubble has plenty of room below the navbar */
 .crew-member.riley-wrapper {
   bottom: 0px;
   right: clamp(8px, 1.2vw, 20px);
@@ -3329,42 +3329,43 @@ body {
 }
 
 .crew-img.riley-img {
-  width: clamp(125px, 13vw, 175px);
-  max-height: 76vh;
+  width: clamp(95px, 9.5vw, 135px);
+  max-height: 52vh;
   height: auto;
   display: block;
   object-fit: contain;
   transform-origin: bottom center;
 }
 
-/* Speech bubbles tailored for each character's comic dialogue - PLACED ABOVE HEADS WITHOUT COVERING BODIES */
+/* Speech bubbles tailored for each character's comic dialogue - FULLY VISIBLE BELOW NAVBAR WITHOUT COVERING BODIES */
 .crew-speech-bubble {
   position: absolute;
-  background: var(--parchment);
+  background: #fffdf5;
   color: var(--ink);
-  border: 3px solid var(--ink);
-  border-radius: 14px;
-  padding: 8px 12px;
-  font-size: 0.82rem;
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.3;
-  box-shadow: 4px 4px 0 var(--ink);
+  line-height: 1.25;
+  box-shadow: 3px 3px 0 var(--ink);
   pointer-events: none;
-  max-width: 175px;
+  max-width: 155px;
   text-align: center;
-  z-index: 10;
+  z-index: 50;
+  white-space: normal;
 }
 
 /* Pointer tail pointing down towards the speaker's head */
 .crew-speech-bubble::after {
   content: '';
   position: absolute;
-  bottom: -9px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 9px 8px 0;
+  border-width: 8px 7px 0;
   border-style: solid;
-  border-color: var(--parchment) transparent transparent;
+  border-color: #fffdf5 transparent transparent;
   display: block;
   width: 0;
 }
@@ -3372,25 +3373,25 @@ body {
 .crew-speech-bubble::before {
   content: '';
   position: absolute;
-  bottom: -13px;
+  bottom: -11px;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 12px 10px 0;
+  border-width: 11px 9px 0;
   border-style: solid;
   border-color: var(--ink) transparent transparent;
   display: block;
   width: 0;
 }
 
-/* Granddad's bubble: floats cleanly ABOVE his head on the left, 0% covering his face */
+/* Granddad's bubble: floats cleanly ABOVE his head, well below the navbar, 0% covering his face */
 .left-bubble {
-  bottom: calc(100% + 12px);
+  bottom: calc(100% + 10px);
   top: auto;
   left: 50%;
   transform: translateX(-35%);
 }
 
-/* Huey's bubble: floats neatly ABOVE his afro, below the navbar, 0% covering his face */
+/* Huey's bubble: floats neatly ABOVE his afro, well below the navbar, 0% covering his face */
 .center-bubble {
   bottom: calc(100% + 10px);
   top: auto;
@@ -3400,25 +3401,46 @@ body {
 }
 
 .center-bubble::after {
-  bottom: -9px;
+  bottom: -8px;
   top: auto;
-  border-width: 9px 8px 0;
+  border-width: 8px 7px 0;
   border-color: #fdf6e2 transparent transparent;
 }
 
 .center-bubble::before {
-  bottom: -13px;
+  bottom: -11px;
   top: auto;
-  border-width: 12px 10px 0;
+  border-width: 11px 9px 0;
   border-color: var(--ink) transparent transparent;
 }
 
-/* Riley's bubble: floats cleanly ABOVE his braids on the right, 0% covering his face */
+/* Riley's bubble: floats cleanly ABOVE his braids, well below the navbar, 0% covering his face */
 .right-bubble {
-  bottom: calc(100% + 12px);
+  bottom: calc(100% + 10px);
   top: auto;
   right: 50%;
   transform: translateX(35%);
+}
+
+/* Short height screens responsive adaptation */
+@media (max-height: 650px) {
+  .crew-img.granddad-img {
+    max-height: 46vh;
+  }
+  .crew-img.riley-img {
+    max-height: 46vh;
+  }
+  .crew-member.huey-wrapper {
+    top: 135px;
+  }
+  .crew-img.huey-img {
+    max-height: 22vh;
+  }
+  .crew-speech-bubble {
+    font-size: 0.72rem;
+    padding: 5px 8px;
+    max-width: 135px;
+  }
 }
 
 /* Responsive adjustments so content remains crisp on tablets and phones */
@@ -3432,8 +3454,8 @@ body {
     opacity: 0.85;
   }
   .crew-member.huey-wrapper {
-    left: 90px;
-    top: 60px;
+    left: 85px;
+    top: 140px;
     opacity: 0.75;
   }
 }
