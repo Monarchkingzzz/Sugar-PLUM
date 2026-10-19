@@ -71,9 +71,9 @@ export function MenaceGuideOverlay({ reactions, currentChapter }) {
       if (currentChapter >= 4 && topic !== 'songPlay' && topic !== 'letters') return
 
       const now = Date.now()
-      // Cooldown: 4.5 seconds between automatic comments (6.5s in softie phase)
-      const minInterval = arcPhase === 'softie' ? 6500 : 4200
-      if (now - lastTimeRef.current < minInterval && topic === lastTopicRef.current) return
+      // Cooldown: 4.5 seconds between automatic comments (or 900ms for active interactions like dodgingNo)
+      const minInterval = topic === 'dodgingNo' ? 900 : arcPhase === 'softie' ? 6500 : 4200
+      if (now - lastTimeRef.current < minInterval && topic === lastTopicRef.current && topic !== 'dodgingNo') return
 
       lastTimeRef.current = now
       lastTopicRef.current = topic

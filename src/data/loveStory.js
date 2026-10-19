@@ -604,6 +604,14 @@ export const story = {
       { mood: 'shocked', text: "Hold up… the WHOLE crew came out to welcome you?! Sugar Plum, you got the entire neighbourhood showing up!" },
       { mood: 'proud_friend', text: "Even Huey gave the nod of approval, Riley is hyped, and Granddad is smiling. You're officially legendary in this universe." }
     ],
+    // Evasive No Button dodge reactions
+    dodgingNo: [
+      { mood: 'laughing_roast', text: "WHY ARE YOU CHASING THAT BUTTON LIKE IT OWE YOU MONEY?! 💀" },
+      { mood: 'shocked', text: "NAH, RUN THAT BACK! She really tried to click NO!" },
+      { mood: 'fake_disrespected', text: "She still trying to click NO?! After everything I built for this website?! 😭" },
+      { mood: 'scheming', text: "Just tap the pink YES button baby girl, bro made you a whole VIP pass! 😈" },
+      { mood: 'fourth_wall', text: "I'm finna need a instant replay on that dodge. 📸" }
+    ],
     // Website opening
     websiteOpen: [
       { mood: 'menace_smirk', text: "Aight, Sugar Plum, welcome to your little corner of the universe. Don't act brand new now." },

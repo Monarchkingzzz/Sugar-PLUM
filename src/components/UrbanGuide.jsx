@@ -112,6 +112,11 @@ export function Guide({ mood = 'side_eye', size = 125 }) {
   const spriteSrc = SPRITE_MAP[normMood] || SPRITE_MAP.side_eye
   const animConfig = EMOTION_ANIMATIONS[normMood] || EMOTION_ANIMATIONS.side_eye
 
+  // Reset loadError whenever mood changes so new expression sprite loads cleanly
+  useEffect(() => {
+    setLoadError(false)
+  }, [normMood])
+
   return (
     <motion.div
       className={`guide-character boondocks-sprite-guide mood-${normMood}`}

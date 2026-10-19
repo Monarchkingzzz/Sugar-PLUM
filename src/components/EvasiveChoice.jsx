@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Guide } from './UrbanGuide.jsx'
+import { triggerMenaceComment } from './MenaceGuideOverlay.jsx'
 import { playPop, playHeart, playChime, playClick } from '../utils/soundEffects.js'
 import { Crown, Sparkles, Heart, CheckCircle2, Award } from 'lucide-react'
 
@@ -20,6 +21,7 @@ export function EvasiveChoice({ config, onComplete }) {
     }
 
     playPop(500 + Math.min(dodgeCount * 40, 400))
+    triggerMenaceComment('dodgingNo')
 
     setDodgeCount((prev) => {
       const nextCount = prev + 1
@@ -81,7 +83,7 @@ export function EvasiveChoice({ config, onComplete }) {
       <div className="arena-guide-row">
         {status === 'pending' && (
           <>
-            <Guide mood={currentDodge.mood} size={76} />
+            <Guide key={`guide-${currentDodge.mood}-${dodgeCount}`} mood={currentDodge.mood} size={88} />
             <div className="arena-speech-bubble" aria-live="polite">
               <span className="speech-author">👑 NARRATOR:</span>
               <p className="speech-quote">
