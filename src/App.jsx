@@ -18,6 +18,7 @@ import { EvasiveChoice } from './components/EvasiveChoice.jsx'
 import { MenaceGuideOverlay } from './components/MenaceGuideOverlay.jsx'
 import { triggerMenaceComment } from './utils/menaceEvents.js'
 import { WelcomeCrewBackdrop } from './components/WelcomeCrewBackdrop.jsx'
+import { BoondocksWaxSeal, BoondocksGraffitiCrown } from './components/BoondocksIcons.jsx'
 
 function Photo({ src, caption, quote, title }) {
   const [error, setError] = useState(false)
@@ -424,7 +425,9 @@ function Ch3({ next }) {
 
       {/* Brick Wall with Grafitti and Taped Sticky Notes */}
       <div className="comic-graffiti-wall">
-        <div className="wall-graffiti-crown">👑</div>
+        <div className="wall-graffiti-crown">
+          <BoondocksGraffitiCrown size={36} />
+        </div>
         <div className="wall-graffiti-heart">♡</div>
         <div className="wall-graffiti-tag">Sugar Plum</div>
 
@@ -544,16 +547,19 @@ function Ch4({ next }) {
         {S.letters.map((l, i) => (
           <motion.button
             key={i}
-            className={`wax-envelope-btn ${readLetters.includes(i) ? 'opened' : ''}`}
+            className={`wax-envelope-btn boondocks-envelope ${readLetters.includes(i) ? 'opened' : ''}`}
             whileHover={{ scale: 1.06, y: -4 }}
             whileTap={{ scale: 0.96 }}
             onClick={() => handleOpen(i)}
             aria-label={`Open letter: ${l.title}`}
           >
-            <div className="envelope-seal">{l.seal || '💌'}</div>
+            <div className="envelope-top-flap" />
+            <div className="envelope-seal">
+              <BoondocksWaxSeal seal={l.id || l.seal} size={46} />
+            </div>
             <span className="envelope-label">{l.title}</span>
             <small className="envelope-status">
-              {readLetters.includes(i) ? 'Read ♡' : 'Tap to unfold'}
+              {readLetters.includes(i) ? 'UNFOLDED & READ' : 'TAP TO UNFOLD ✦'}
             </small>
           </motion.button>
         ))}
@@ -577,7 +583,9 @@ function Ch4({ next }) {
             >
               <div className="letter-header">
                 <h3>{S.letters[openLetter].title}</h3>
-                <span className="letter-corner-crown">👑</span>
+                <span className="letter-corner-crown">
+                  <BoondocksGraffitiCrown size={28} />
+                </span>
               </div>
               <div className="letter-body-content">
                 {S.letters[openLetter].body.map((p, idx) => (
@@ -737,7 +745,9 @@ function Ch6({ replay }) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <div className="closing-crown">👑</div>
+              <div className="closing-crown">
+                <BoondocksGraffitiCrown size={42} />
+              </div>
               <h2 className="closing-title">{S.closing}</h2>
 
               <div className="finale-button-group">

@@ -28,6 +28,16 @@ export function WelcomeCrewBackdrop({ currentChapter, onCharacterClick }) {
         onClick={() => onCharacterClick?.('granddad')}
         title="Robert 'Granddad' Freeman welcomes Sugar Plum"
       >
+        {isCh1 && (
+          <motion.div 
+            className="crew-speech-bubble left-bubble"
+            initial={{ opacity: 0, y: -10, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 1.2, duration: 0.4 }}
+          >
+            <span>Welcome to the family, Sugar Plum! Don't let these boys give you a headache!</span>
+          </motion.div>
+        )}
         <motion.div
           animate={{
             y: [0, -5, 0],
@@ -45,16 +55,6 @@ export function WelcomeCrewBackdrop({ currentChapter, onCharacterClick }) {
             alt="Granddad welcoming Sugar Plum"
             className="crew-img granddad-img"
           />
-          {isCh1 && (
-            <motion.div 
-              className="crew-speech-bubble left-bubble"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2, duration: 0.4 }}
-            >
-              <span>Welcome to the family, Sugar Plum! Don't let these boys give you a headache! 🥂</span>
-            </motion.div>
-          )}
         </motion.div>
       </motion.div>
 
@@ -71,6 +71,16 @@ export function WelcomeCrewBackdrop({ currentChapter, onCharacterClick }) {
         onClick={() => onCharacterClick?.('huey')}
         title="Huey Freeman gives the subtle nod of respect"
       >
+        {isCh1 && (
+          <motion.div 
+            className="crew-speech-bubble center-bubble"
+            initial={{ opacity: 0, y: -10, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 1.6, duration: 0.4 }}
+          >
+            <span>*composed nod* Respect. Bro definitely found someone real.</span>
+          </motion.div>
+        )}
         <motion.div
           animate={{
             y: [0, -3, 0],
@@ -88,16 +98,6 @@ export function WelcomeCrewBackdrop({ currentChapter, onCharacterClick }) {
             alt="Huey Freeman observing and giving a respectful nod"
             className="crew-img huey-img"
           />
-          {isCh1 && (
-            <motion.div 
-              className="crew-speech-bubble center-bubble"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.6, duration: 0.4 }}
-            >
-              <span>*composed nod* Respect. Bro definitely found someone real.</span>
-            </motion.div>
-          )}
         </motion.div>
       </motion.div>
 
@@ -115,6 +115,16 @@ export function WelcomeCrewBackdrop({ currentChapter, onCharacterClick }) {
         onClick={() => onCharacterClick?.('riley')}
         title="Riley Freeman hyped and welcoming Sugar Plum"
       >
+        {isCh1 && (
+          <motion.div 
+            className="crew-speech-bubble right-bubble"
+            initial={{ opacity: 0, y: -10, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 1.4, duration: 0.4 }}
+          >
+            <span>YOOO! Sugar Plum in the building! My boy is big ballin' now!</span>
+          </motion.div>
+        )}
         <motion.div
           animate={{
             y: [0, -8, 0],
@@ -132,16 +142,6 @@ export function WelcomeCrewBackdrop({ currentChapter, onCharacterClick }) {
             alt="Riley Freeman hyped to see Sugar Plum"
             className="crew-img riley-img"
           />
-          {isCh1 && (
-            <motion.div 
-              className="crew-speech-bubble right-bubble"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.4, duration: 0.4 }}
-            >
-              <span>YOOO! Sugar Plum in the building! My boy is big ballin' now! 🔥</span>
-            </motion.div>
-          )}
         </motion.div>
       </motion.div>
     </div>

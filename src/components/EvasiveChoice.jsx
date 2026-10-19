@@ -4,6 +4,7 @@ import { Guide } from './UrbanGuide.jsx'
 import { triggerMenaceComment } from '../utils/menaceEvents.js'
 import { playPop, playHeart, playChime, playClick } from '../utils/soundEffects.js'
 import { Crown, Sparkles, Heart, CheckCircle2, Award } from 'lucide-react'
+import { BoondocksGraffitiCrown } from './BoondocksIcons.jsx'
 
 export function EvasiveChoice({ config, onComplete }) {
   const containerRef = useRef(null)
@@ -200,7 +201,7 @@ export function EvasiveChoice({ config, onComplete }) {
         >
           <div className="vip-card-header">
             <div className="vip-seal">
-              <Crown size={28} color="#ffc83b" />
+              <BoondocksGraffitiCrown size={32} />
             </div>
             <div>
               <span className="vip-tag">{config.surprise.tag}</span>

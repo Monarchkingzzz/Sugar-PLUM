@@ -332,7 +332,7 @@ export const story = {
     {
       id: 'spark',
       title: 'The First Spark at Moriah Deli',
-      seal: '👑',
+      seal: 'afro_pick',
       body: [
         'My Dearest Sugar Plum,',
         'I still remember Moriah Deli like it was yesterday. The neon sign outside, the cool evening air, and you sitting across from me enjoying your ice cream.',
@@ -343,7 +343,7 @@ export const story = {
     {
       id: 'little_things',
       title: 'The Realness & The Little Things',
-      seal: '✨',
+      seal: 'spray_can',
       body: [
         'Sugar Plum,',
         "The thing I love most about you is that you're just you. You don't perform. You don't put on a mask. You let me see the goofiness, the smarts, the tired moments, and the big laughs.",
@@ -354,7 +354,7 @@ export const story = {
     {
       id: 'midnight',
       title: 'The Quiet Hours & Your Voice',
-      seal: '🌙',
+      seal: 'audio_mic',
       body: [
         'My Girl,',
         "When you told me you were awake at 2 AM thinking about me, wishing you could call but trying not to wake me... I need you to understand something: you can call me whenever your heart desires. 2 AM, 4 AM, anytime. I'd wake up just to hear your sleepy voice.",
