@@ -4,12 +4,8 @@ import { Guide } from './UrbanGuide.jsx'
 import { playPop, playClick } from '../utils/soundEffects.js'
 import { X, MessageSquare, Flame } from 'lucide-react'
 
-// Custom Event emitter so any component (minigame, memory, sticky note) can trigger Menace Guide commentary
-export const triggerMenaceComment = (topic) => {
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('menace-guide-event', { detail: { topic } }))
-  }
-}
+import { triggerMenaceComment } from '../utils/menaceEvents.js'
+export { triggerMenaceComment }
 
 export function MenaceGuideOverlay({ reactions, currentChapter }) {
   const [activeComment, setActiveComment] = useState(null)

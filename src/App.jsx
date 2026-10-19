@@ -15,7 +15,8 @@ import {
 import { playPop, playHeart, playChime, playClick } from './utils/soundEffects.js'
 import { Sparkles, Heart, Crown, BookOpen, RotateCcw, ArrowRight, ZoomIn, X, Maximize2 } from 'lucide-react'
 import { EvasiveChoice } from './components/EvasiveChoice.jsx'
-import { MenaceGuideOverlay, triggerMenaceComment } from './components/MenaceGuideOverlay.jsx'
+import { MenaceGuideOverlay } from './components/MenaceGuideOverlay.jsx'
+import { triggerMenaceComment } from './utils/menaceEvents.js'
 import { WelcomeCrewBackdrop } from './components/WelcomeCrewBackdrop.jsx'
 
 function Photo({ src, caption, quote, title }) {

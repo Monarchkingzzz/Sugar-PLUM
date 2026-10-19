@@ -36,9 +36,25 @@ class ErrorBoundary extends Component {
           <h2 style={{ fontSize: '28px', color: '#ff385c', marginBottom: '12px' }}>
             Sugar Plum Universe Reconnecting... ✨
           </h2>
-          <p style={{ maxWidth: '480px', color: '#e0c9f7', marginBottom: '24px', lineHeight: 1.6 }}>
+          <p style={{ maxWidth: '480px', color: '#e0c9f7', marginBottom: '16px', lineHeight: 1.6 }}>
             The narrator paused for a quick frame refresh. Tap below to reload the romance comic:
           </p>
+          {this.state.error && (
+            <pre style={{
+              background: 'rgba(0,0,0,0.5)',
+              color: '#ff8a9e',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              fontSize: '13px',
+              maxWidth: '90vw',
+              overflowX: 'auto',
+              marginBottom: '20px',
+              whiteSpace: 'pre-wrap'
+            }}>
+              {String(this.state.error?.message || this.state.error)}
+              {this.state.error?.stack && '\n' + String(this.state.error.stack).split('\n').slice(0, 4).join('\n')}
+            </pre>
+          )}
           <button
             onClick={() => window.location.reload()}
             style={{

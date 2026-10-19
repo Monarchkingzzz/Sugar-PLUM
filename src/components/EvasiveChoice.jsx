@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Guide } from './UrbanGuide.jsx'
-import { triggerMenaceComment } from './MenaceGuideOverlay.jsx'
+import { triggerMenaceComment } from '../utils/menaceEvents.js'
 import { playPop, playHeart, playChime, playClick } from '../utils/soundEffects.js'
 import { Crown, Sparkles, Heart, CheckCircle2, Award } from 'lucide-react'
 
