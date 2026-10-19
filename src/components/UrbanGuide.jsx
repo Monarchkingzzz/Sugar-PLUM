@@ -143,20 +143,18 @@ export function Guide({ mood = 'side_eye', size = 125 }) {
           <div className="guide-fx-badge heart">❤️</div>
         )}
 
-        {!loadError ? (
-          <img
-            src={spriteSrc}
-            alt={`Guide character expressing ${normMood}`}
-            className="guide-sprite-img"
-            onError={() => setLoadError(true)}
-          />
-        ) : (
-          <img
-            src="/images/guide-huey.jpg"
-            alt="Guide character"
-            className="guide-sprite-img"
-          />
-        )}
+        <img
+          src={!loadError ? spriteSrc : '/images/guide-portrait.jpg'}
+          alt={`Boondocks Guide character expressing ${normMood}`}
+          className="guide-sprite-img"
+          onError={(e) => {
+            if (!loadError) {
+              setLoadError(true)
+            } else {
+              e.currentTarget.src = '/images/guide-huey.jpg'
+            }
+          }}
+        />
       </div>
     </motion.div>
   )
