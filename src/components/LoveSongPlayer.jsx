@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { Play, Pause, Volume2, Music, Disc3, Sparkles } from 'lucide-react'
+import { Play, Pause, Volume2, Music, Disc3, Sparkles, Upload } from 'lucide-react'
 import { playPop, playHeart } from '../utils/soundEffects.js'
 
 const fmt = (s) =>
