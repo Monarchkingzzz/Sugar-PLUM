@@ -375,12 +375,13 @@ export const story = {
   ],
 
   song: {
-    title: 'Our World (Sugar Plum Theme)',
-    artist: 'Dedicated to You',
-    audio: '/music/our-song.mp3',
+    title: 'Fight For You',
+    artist: 'Dedicated to Celine, from your boyfriend Maurice',
+    audio: '/music/fight-for-you.mp3',
+    fallbackAudio: '/music/fight-for-you.mpeg',
     cover: '/memories/hero.jpg',
     missing:
-      'Drop your song file into public/music/our-song.mp3 anytime! Meanwhile, enjoy the smooth ambient vibes.'
+      'Playing your special song: Fight For You.'
   },
 
   finalIntro: [

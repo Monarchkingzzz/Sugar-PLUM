@@ -196,7 +196,16 @@ export default function LoveSongPlayer({ song }) {
     const onPlay = () => setIsPlaying(true)
     const onPause = () => setIsPlaying(false)
     const onEnded = () => setIsPlaying(false)
+    let hasTriedFallback = false
     const onError = () => {
+      if (!customTrack && song?.fallbackAudio && !hasTriedFallback) {
+        hasTriedFallback = true
+        if (el) {
+          el.src = song.fallbackAudio
+          el.load()
+        }
+        return
+      }
       if (!customTrack) {
         // Fallback seamlessly to Lo-Fi synthesizer
         setStatus('ready')
