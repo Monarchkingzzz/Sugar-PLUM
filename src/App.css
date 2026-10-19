@@ -1,0 +1,3436 @@
+/* ==========================================================================
+   SUGAR PLUM - Graphic Novel & Comic Anime Love Experience
+   Vibe: Afro-Anime, Sunset City Skyline, Halftone Comics, Warm Banter
+   ========================================================================== */
+
+:root {
+  --ink: #120f1a;
+  --sunset-deep: #1d122f;
+  --sunset-purple: #3a1a45;
+  --sunset-crimson: #a82e3f;
+  --sunset-orange: #ff6826;
+  --sunset-gold: #ffc83b;
+  --neon-red: #ff3366;
+  --neon-blue: #38bdf8;
+  --parchment: #fdf8ed;
+  --parchment-dim: #f3ebda;
+  --brick-dark: #27222c;
+  --brick-mortar: #1e1a24;
+  --shadow-comic: 4px 4px 0 var(--ink);
+  --shadow-comic-lg: 7px 7px 0 var(--ink);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--sunset-deep);
+  color: var(--parchment);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Urban Graffiti Mural Background with Cinematic Sunbeams */
+.comic-app {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #120e1c;
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 240, 180, 0.45) 0%, rgba(255, 120, 45, 0.22) 28%, transparent 60%),
+    linear-gradient(180deg, rgba(16, 12, 24, 0.68) 0%, rgba(26, 15, 34, 0.75) 45%, rgba(14, 10, 20, 0.88) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background 1.2s ease-in-out;
+}
+
+/* Diagonal radiant sunbeam rays streaming from top right */
+.comic-app::after {
+  content: '';
+  position: fixed;
+  top: -10%;
+  right: -5%;
+  width: 65vw;
+  height: 60vh;
+  pointer-events: none;
+  background: 
+    repeating-conic-gradient(
+      from 215deg at 90% 10%,
+      rgba(255, 245, 210, 0.12) 0deg 8deg,
+      transparent 8deg 18deg,
+      rgba(255, 220, 150, 0.08) 18deg 24deg,
+      transparent 24deg 34deg
+    );
+  mask-image: radial-gradient(circle at 90% 10%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 90% 10%, black 20%, transparent 75%);
+  z-index: 2;
+}
+
+.comic-app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.14) 1px, transparent 0);
+  background-size: 14px 14px;
+  z-index: 1;
+}
+
+/* Dynamic chapter mood tints over the graffiti backdrop */
+.comic-app.ch0 {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 240, 180, 0.48) 0%, rgba(255, 110, 40, 0.25) 30%, transparent 62%),
+    linear-gradient(180deg, rgba(18, 12, 26, 0.65) 0%, rgba(35, 16, 38, 0.72) 50%, rgba(16, 10, 22, 0.85) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+}
+.comic-app.ch1 {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 220, 160, 0.4) 0%, rgba(255, 80, 50, 0.25) 32%, transparent 62%),
+    linear-gradient(180deg, rgba(22, 11, 28, 0.68) 0%, rgba(55, 18, 38, 0.76) 50%, rgba(16, 8, 20, 0.88) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+}
+.comic-app.ch2 {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 200, 150, 0.3) 0%, rgba(220, 40, 70, 0.22) 35%, transparent 65%),
+    linear-gradient(180deg, rgba(24, 12, 26, 0.68) 0%, rgba(45, 18, 32, 0.78) 55%, rgba(18, 10, 20, 0.9) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+}
+.comic-app.ch3 {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 230, 170, 0.35) 0%, rgba(0, 196, 244, 0.18) 35%, transparent 65%),
+    linear-gradient(180deg, rgba(16, 12, 26, 0.62) 0%, rgba(28, 18, 42, 0.72) 50%, rgba(12, 8, 20, 0.88) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+}
+.comic-app.ch4 {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 190, 140, 0.25) 0%, rgba(120, 40, 180, 0.2) 35%, transparent 65%),
+    linear-gradient(180deg, rgba(12, 8, 22, 0.76) 0%, rgba(20, 14, 38, 0.82) 50%, rgba(10, 6, 18, 0.92) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+}
+.comic-app.ch5 {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(255, 210, 160, 0.4) 0%, rgba(255, 90, 50, 0.25) 35%, transparent 65%),
+    linear-gradient(180deg, rgba(10, 6, 18, 0.72) 0%, rgba(28, 14, 38, 0.78) 50%, rgba(14, 8, 22, 0.9) 100%),
+    url('/images/urban-graffiti-backdrop.jpg');
+}
+
+
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+.comic-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(18, 15, 26, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 3.5px solid var(--ink);
+  padding: 8px 16px;
+}
+
+.nav-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-title {
+  font-family: 'Bangers', cursive;
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  color: var(--sunset-gold);
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.chapter-step-list {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chapter-pip-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 2.5px solid var(--ink);
+  background: var(--parchment-dim);
+  color: var(--ink);
+  font-family: 'Bangers', cursive;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.chapter-pip-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--sunset-gold);
+}
+
+.chapter-pip-btn[aria-current="step"] {
+  background: var(--sunset-gold);
+  border-color: var(--ink);
+  transform: scale(1.08);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.chapter-pip-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: #332d3d;
+  color: #888;
+}
+
+.storyboard-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sunset-orange);
+  color: var(--ink);
+  border: 2.5px solid var(--ink);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.storyboard-toggle-btn:hover {
+  background: var(--sunset-gold);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Main Viewport Layout
+   ========================================================================== */
+.main-viewport {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 18px 80px;
+}
+
+.chapter-header-tag {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.ch-num {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--sunset-gold);
+  border: 2px solid var(--sunset-gold);
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.ch-title {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.05em;
+  color: var(--parchment);
+  text-shadow: 3px 3px 0 var(--ink), 5px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.comic-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  width: 100%;
+}
+
+.comic-stage.center {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Comic Speech Bubble & Urban Guide Narrator
+   ========================================================================== */
+.comic-say-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.guide-character {
+  flex-shrink: 0;
+  filter: drop-shadow(3px 3px 0 var(--ink));
+}
+
+.sprite-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.guide-sprite-img {
+  width: 100%;
+  height: auto;
+  max-height: 175px;
+  object-fit: contain;
+  display: block;
+  image-rendering: auto;
+}
+
+.boondocks-sprite-guide {
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.comic-speech-bubble {
+  position: relative;
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 18px;
+  padding: 16px 20px;
+  flex: 1;
+  box-shadow: var(--shadow-comic-lg);
+}
+
+/* Speech bubble tail pointing to guide */
+.bubble-tail {
+  position: absolute;
+  bottom: 20px;
+  left: -16px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 16px solid var(--ink);
+}
+
+.bubble-tail::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 13px solid var(--parchment);
+}
+
+.bubble-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 2px dashed rgba(18, 15, 26, 0.2);
+  padding-bottom: 4px;
+}
+
+.narrator-tag {
+  font-family: 'Bangers', cursive;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--sunset-crimson);
+}
+
+.counter-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #666;
+}
+
+.comic-speech-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  color: #17141f;
+}
+
+.bubble-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bubble-done-badge {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.comic-btn {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.18rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.comic-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+  background: #ffd566;
+}
+
+.comic-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.comic-btn.primary {
+  background: var(--sunset-orange);
+  color: var(--parchment);
+}
+
+.comic-btn.primary:hover {
+  background: #ff7d42;
+}
+
+.comic-btn.secondary {
+  background: var(--parchment);
+  color: var(--ink);
+}
+
+.comic-btn.mini {
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+}
+
+.comic-btn.pulse {
+  animation: comicPulse 2.4s infinite;
+}
+
+@keyframes comicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* ==========================================================================
+   Chapter 1: Hero & Real Talk
+   ========================================================================== */
+.hero-crown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 2.5px solid var(--ink);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.hero-center-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-artwork-frame {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  border: 4px solid var(--ink);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-comic-lg);
+  background: #000;
+}
+
+.hero-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.hero-artwork-frame:hover .hero-img {
+  transform: scale(1.03);
+}
+
+.hero-tagline-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(18, 15, 26, 0.85);
+  color: var(--sunset-gold);
+  border: 2px solid var(--sunset-gold);
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+}
+
+.hero-title {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(3.8rem, 13vw, 6.8rem);
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: var(--sunset-gold);
+  text-shadow: 4px 4px 0 var(--sunset-crimson), 8px 8px 0 var(--ink);
+  line-height: 0.95;
+}
+
+.hero-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  color: var(--parchment);
+  margin: 0;
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.reveal-card {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 620px;
+  width: 100%;
+  box-shadow: var(--shadow-comic-lg);
+  text-align: left;
+}
+
+.reveal-tag {
+  display: inline-block;
+  background: var(--sunset-crimson);
+  color: var(--parchment);
+  font-family: 'Bangers', cursive;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 2px 10px;
+  margin-bottom: 12px;
+}
+
+.reveal-p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+
+.reveal-p.bold {
+  font-weight: 800;
+  color: #120f1a;
+}
+
+.button-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* ==========================================================================
+   Chapter 2: The Archive Files Grid
+   ========================================================================== */
+.archive-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgba(18, 15, 26, 0.7);
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px 18px;
+  box-shadow: var(--shadow-comic);
+}
+
+.archive-header-row h3 {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  color: var(--sunset-gold);
+}
+
+.archive-progress {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--parchment);
+}
+
+.comic-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.archive-file-card {
+  position: relative;
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 14px;
+  padding: 18px 14px 14px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.archive-file-card:hover {
+  box-shadow: var(--shadow-comic-lg);
+  background: #fffdf5;
+}
+
+.archive-file-card.opened {
+  background: var(--parchment-dim);
+}
+
+.file-pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--neon-red);
+  border: 2px solid var(--ink);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.file-badge {
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  background: var(--sunset-gold);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 2px 8px;
+  align-self: flex-start;
+}
+
+.file-thumb {
+  width: 100%;
+  height: 140px;
+  border: 2.5px solid var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0c0915;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.file-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0c0915;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.25s ease;
+}
+
+.archive-file-card:hover .file-thumb img {
+  transform: scale(1.05);
+}
+
+.file-title {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  color: #120f1a;
+  flex: 1;
+}
+
+.file-stamp {
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+}
+
+/* ==========================================================================
+   Memory Scene View
+   ========================================================================== */
+.comic-memory-scene {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  box-shadow: var(--shadow-comic-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comic-memory-scene.night {
+  background: #171524;
+  color: var(--parchment);
+}
+
+.comic-memory-scene.night .sincere-narrative {
+  color: #f1edfa;
+}
+
+.comic-memory-scene.night .memory-title {
+  color: var(--sunset-gold);
+}
+
+.memory-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comic-badge {
+  background: var(--sunset-crimson);
+  color: var(--parchment);
+  font-family: 'Bangers', cursive;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  padding: 3px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--sunset-orange);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.back-btn:hover {
+  color: var(--sunset-gold);
+}
+
+.memory-title {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.04em;
+  margin: 0;
+  color: #120f1a;
+}
+
+.comic-photo-frame {
+  margin: 0;
+  border: 3.5px solid var(--ink);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0814;
+  box-shadow: var(--shadow-comic);
+  position: relative;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comic-photo-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.comic-photo-frame img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+  object-fit: contain;
+  background: #090710;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.3s ease;
+}
+
+.hd-badge-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(18, 15, 26, 0.92);
+  color: var(--sunset-gold);
+  border: 1.5px solid var(--sunset-gold);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.photo-tap-hint {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(18, 15, 26, 0.88);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.comic-photo-frame:hover .photo-tap-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.photo-caption {
+  background: var(--parchment-dim);
+  color: var(--ink);
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-top: 2.5px solid var(--ink);
+  text-align: center;
+}
+
+/* ==========================================================================
+   HD Lightbox Modal
+   ========================================================================== */
+.hd-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 18, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.hd-lightbox-container {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 10px 10px 0 var(--ink);
+}
+
+.hd-lightbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #171424;
+  color: var(--parchment);
+  border-bottom: 3.5px solid var(--ink);
+}
+
+.hd-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hd-tag {
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--sunset-gold);
+}
+
+.hd-title {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.hd-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hd-zoom-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.hd-zoom-btn:hover {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.hd-zoom-btn.reset {
+  font-size: 0.78rem;
+  padding: 5px 8px;
+}
+
+.hd-close-btn {
+  background: var(--sunset-crimson);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.15s;
+}
+
+.hd-close-btn:hover {
+  transform: scale(1.08);
+}
+
+.hd-image-viewport {
+  flex: 1;
+  background: #080611;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  max-height: 56vh;
+  padding: 12px;
+}
+
+.hd-viewport-img {
+  max-width: 100%;
+  max-height: 54vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.2s ease-out;
+}
+
+.hd-lightbox-caption-box {
+  padding: 14px 20px;
+  background: var(--parchment);
+  border-top: 3.5px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hd-quote-bubble {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  background: rgba(255, 200, 59, 0.2);
+  border-left: 4px solid var(--sunset-crimson);
+  padding: 6px 14px;
+  border-radius: 0 8px 8px 0;
+}
+
+.hd-caption-text {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Comic Vector Speech Bubble Overlay (100% Vector Typography) */
+.comic-art-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.comic-vector-speech-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background: rgba(254, 252, 246, 0.96);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px 16px;
+  box-shadow: 4px 4px 0 var(--ink);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 3;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comic-vector-speech-overlay:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.speech-tape {
+  display: inline-block;
+  background: var(--sunset-gold);
+  color: var(--ink);
+  font-family: 'Bangers', cursive;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 1px 8px;
+  margin-bottom: 4px;
+}
+
+.speech-text {
+  margin: 0;
+  font-family: 'Gloria Hallelujah', 'Caveat', cursive;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: #120f1a;
+  letter-spacing: 0.01em;
+}
+
+.hd-crisp-speech-balloon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.balloon-tag {
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--sunset-crimson);
+}
+
+/* Guide Dynamic Reaction Badges */
+.guide-fx-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 10;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  box-shadow: 2px 2px 0 var(--ink);
+  pointer-events: none;
+}
+
+.guide-fx-badge.victory {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  animation: bounce 0.8s infinite alternate;
+}
+
+.guide-fx-badge.sweat {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--ink);
+}
+
+.guide-fx-badge.impact {
+  font-size: 1.1rem;
+  background: #ffec3d;
+  border: 1.5px solid var(--ink);
+}
+
+.guide-fx-badge.tears {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid var(--ink);
+}
+
+.guide-fx-badge.heart {
+  font-size: 1.1rem;
+  background: #ffe3ec;
+  border: 1.5px solid #ff385c;
+}
+
+.sincere-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.comic-quote {
+  border-left: 5px solid var(--sunset-gold);
+  background: rgba(255, 200, 59, 0.12);
+  padding: 12px 18px;
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  border-radius: 0 10px 10px 0;
+}
+
+.passage-body {
+  margin: 0;
+}
+
+.passage-extra {
+  font-style: italic;
+  color: #555;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.scene-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Interactive Minigames & Simulators
+   ========================================================================== */
+.interactive-card {
+  background: #fff;
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow-comic);
+  margin: 14px 0;
+}
+
+.card-top-tag {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--sunset-gold);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.interactive-card h4 {
+  font-family: 'Bangers', cursive;
+  font-size: 1.4rem;
+  margin: 0 0 4px;
+  color: #120f1a;
+}
+
+.interactive-card .subtext {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 0 12px;
+}
+
+/* Dynamic Guide Reaction inside Minigames */
+.minigame-guide-reaction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--parchment-dim);
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+}
+
+.mini-speech-bubble {
+  flex: 1;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 8px 12px;
+  position: relative;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.mini-speech-bubble p {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  line-height: 1.3;
+}
+
+.shot-toggle-pills {
+  display: flex;
+  gap: 8px;
+}
+
+.shot-pill {
+  background: var(--parchment-dim);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 4px 12px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.shot-pill.active {
+  background: var(--sunset-crimson);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* Note Popup Guide Header */
+.note-popup-header-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  border-bottom: 2px dashed rgba(18, 15, 26, 0.2);
+  padding-bottom: 8px;
+}
+
+.note-popup-titles {
+  flex: 1;
+}
+
+.note-popup-tag {
+  display: inline-block;
+  background: var(--sunset-crimson);
+  color: #fff;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+
+/* 1. Ice Cream Minigame */
+.icecream-bowl-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.icecream-graphic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.sundae-dish {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sundae-strawberry {
+  font-size: 1.8rem;
+  position: absolute;
+  top: -10px;
+  z-index: 5;
+  animation: bounceStrawberry 1.5s infinite;
+}
+
+@keyframes bounceStrawberry {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.scoop {
+  width: 72px;
+  height: 60px;
+  border-radius: 40px 40px 10px 10px;
+  background: linear-gradient(135deg, #ff9bb2, #ff577d);
+  border: 2.5px solid var(--ink);
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.scoop.bite-1 { transform: scale(0.9); }
+.scoop.bite-2 { transform: scale(0.75); }
+.scoop.bite-3 { transform: scale(0.6); }
+.scoop.bite-4 { transform: scale(0.4); opacity: 0.5; }
+
+.sundae-glass-cup {
+  width: 82px;
+  height: 32px;
+  background: rgba(180, 220, 255, 0.45);
+  border: 2.5px solid var(--ink);
+  border-radius: 0 0 40px 40px;
+}
+
+.spoon-action-btn {
+  background: var(--sunset-gold);
+  border: 2.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 6px 16px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+}
+
+.spark-meter-box {
+  width: 100%;
+  max-width: 480px;
+}
+
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.meter-track {
+  width: 100%;
+  height: 18px;
+  background: #eee;
+  border: 2.5px solid var(--ink);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+.meter-quote {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+/* 2. Food Critic Minigame */
+.dish-selector-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dish-pill-btn {
+  background: var(--parchment-dim);
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.dish-pill-btn.active {
+  background: var(--sunset-gold);
+  transform: scale(1.05);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.dance-reaction-box {
+  background: var(--parchment);
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dancing-avatar-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dancer-emoji {
+  font-size: 2.4rem;
+}
+
+.dance-status {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--sunset-crimson);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.field-note-bubble {
+  flex: 1;
+}
+
+.dish-report-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
+
+/* 3. One Shot Case Closed */
+.stamina-slider-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.shot-counter {
+  background: var(--sunset-crimson);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 14px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.1rem;
+}
+
+.stamina-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.compare-item span {
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stamina-bar-outer {
+  width: 100%;
+  height: 14px;
+  background: #eee;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stamina-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.case-closed-stamp {
+  background: #fff0f3;
+  color: #c9184a;
+  border: 2px dashed #c9184a;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: 'Bangers', cursive;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* 4. Midnight 2 AM Phone Simulation */
+.midnight-phone {
+  background: #090c16;
+  color: #e2e8f0;
+  border: 3.5px solid var(--ink);
+  border-radius: 24px;
+  padding: 14px 16px;
+  max-width: 380px;
+  margin: 0 auto;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.25), var(--shadow-comic);
+}
+
+.phone-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.phone-icons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.phone-chat-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.chat-date-pill {
+  align-self: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.chat-bubble p {
+  margin: 0 0 2px;
+}
+
+.chat-bubble.her {
+  align-self: flex-start;
+  background: #334155;
+  color: #f8fafc;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-bubble.his-reply {
+  align-self: flex-end;
+  background: #0284c7;
+  color: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-time {
+  display: block;
+  font-size: 0.68rem;
+  opacity: 0.75;
+  text-align: right;
+}
+
+.phone-bottom-action {
+  text-align: center;
+}
+
+.ring-him-btn {
+  background: #10b981;
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.ring-him-btn:hover {
+  background: #059669;
+}
+
+.call-answered-alert {
+  background: #064e3b;
+  color: #a7f3d0;
+  border: 1.5px solid #10b981;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.88rem;
+}
+
+.call-answered-alert strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+/* 5. Voice Memo Card */
+.voice-memo-player-ui {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--parchment);
+  border: 2.5px solid var(--ink);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.memo-play-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--sunset-crimson);
+  color: #fff;
+  border: 2px solid var(--ink);
+  font-size: 1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.memo-wave-bars {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 32px;
+}
+
+.wave-bar {
+  flex: 1;
+  background: var(--ink);
+  border-radius: 3px;
+  min-height: 4px;
+}
+
+.memo-timestamp {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #444;
+}
+
+.voice-quote-pill {
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Chapter 3: Graffiti Brick Wall & Sticky Notes
+   ========================================================================== */
+.wall-header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgba(18, 15, 26, 0.7);
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px 18px;
+  box-shadow: var(--shadow-comic);
+}
+
+.wall-title-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wall-title-flex h3 {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  color: var(--sunset-gold);
+}
+
+.wall-counter {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--parchment);
+}
+
+/* Brick Wall with Spray Paint Graffiti */
+.comic-graffiti-wall {
+  position: relative;
+  width: 100%;
+  background-color: var(--brick-dark);
+  background-image:
+    linear-gradient(rgba(18, 15, 26, 0.45), rgba(18, 15, 26, 0.7)),
+    url('/images/urban-graffiti-backdrop.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--ink);
+  border-radius: 18px;
+  padding: 30px 20px;
+  box-shadow: var(--shadow-comic-lg);
+  overflow: hidden;
+}
+
+.wall-graffiti-crown {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 3rem;
+  color: var(--sunset-gold);
+  opacity: 0.25;
+  user-select: none;
+}
+
+.wall-graffiti-heart {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  font-size: 4rem;
+  color: var(--neon-red);
+  opacity: 0.25;
+  user-select: none;
+}
+
+.wall-graffiti-tag {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-6deg);
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: rgba(255, 200, 59, 0.12);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.notes-grid {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.sticky-note {
+  position: relative;
+  border: 2.5px solid var(--ink);
+  border-radius: 4px;
+  padding: 18px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+  color: var(--ink);
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 120px;
+  justify-content: center;
+}
+
+.sticky-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.sticky-heart-seal {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  color: var(--neon-red);
+}
+
+.sticky-icon-wrap {
+  color: var(--ink);
+}
+
+.sticky-note-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.sticky-tap-hint {
+  font-size: 0.68rem;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+/* Sticky Note Detail Popup */
+.note-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.note-popup-card {
+  position: relative;
+  background: #fffbe8;
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 26px 22px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: var(--shadow-comic-lg);
+}
+
+.note-card-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.note-popup-card h3 {
+  margin: 0 0 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: var(--sunset-crimson);
+}
+
+.narrator-aside {
+  background: rgba(168, 46, 63, 0.1);
+  border-left: 3px solid var(--sunset-crimson);
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.note-popup-text {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+/* ==========================================================================
+   Chapter 4: Love Letters & Wax Envelopes
+   ========================================================================== */
+.envelopes-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+}
+
+.wax-envelope-btn {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 14px;
+  padding: 22px 18px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wax-envelope-btn:hover {
+  box-shadow: var(--shadow-comic-lg);
+  background: #fff;
+}
+
+.wax-envelope-btn.opened {
+  background: var(--parchment-dim);
+}
+
+.envelope-seal {
+  font-size: 2.2rem;
+}
+
+.envelope-label {
+  font-family: 'Bangers', cursive;
+  font-size: 1.18rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.envelope-status {
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+}
+
+.letter-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.parchment-letter-card {
+  background: var(--parchment);
+  color: #17141f;
+  border: 4px solid var(--ink);
+  border-radius: 16px;
+  padding: 28px 24px;
+  max-width: 580px;
+  width: 100%;
+  box-shadow: var(--shadow-comic-lg);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed rgba(18, 15, 26, 0.2);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.letter-header h3 {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: var(--sunset-crimson);
+}
+
+.letter-corner-crown {
+  font-size: 1.6rem;
+}
+
+.letter-body-content p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.85;
+  margin: 0 0 14px;
+}
+
+.letter-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+/* ==========================================================================
+   Chapter 5: Music Player & Spinning Vinyl
+   ========================================================================== */
+.player-persistent-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.comic-song-player {
+  background: #151122;
+  border: 3.5px solid var(--sunset-gold);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: var(--shadow-comic-lg), 0 0 40px rgba(255, 200, 59, 0.25);
+  text-align: center;
+  width: 100%;
+}
+
+.player-comic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.cover-art-wrapper {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 16px;
+}
+
+.vinyl-disc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #222 30%, #111 60%, #000 100%);
+  border: 4px solid #333;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.vinyl-disc.spinning {
+  animation: spinRecord 4s linear infinite;
+}
+
+@keyframes spinRecord {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.cover-frame {
+  position: relative;
+  z-index: 2;
+  width: 130px;
+  height: 130px;
+  margin: 20px auto 0;
+  border: 3.5px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-comic);
+}
+
+.cover-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--sunset-crimson);
+  display: grid;
+  place-items: center;
+}
+
+.track-title {
+  margin: 0 0 4px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--sunset-gold);
+}
+
+.track-artist {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.synth-mode-pill {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.player-time-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.time-num {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #bbb;
+  width: 34px;
+}
+
+.comic-range {
+  flex: 1;
+  accent-color: var(--sunset-gold);
+  cursor: pointer;
+}
+
+.comic-range.mini {
+  width: 80px;
+}
+
+.player-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.comic-play-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--sunset-orange);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-comic);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.comic-play-btn:hover {
+  transform: scale(1.08);
+  background: var(--sunset-gold);
+}
+
+.comic-song-player.drag-over {
+  border-color: var(--neon-blue);
+  background: #1c1530;
+  box-shadow: 0 0 30px var(--neon-blue);
+}
+
+.player-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.audio-upload-btn {
+  background: rgba(255, 200, 59, 0.15);
+  color: var(--sunset-gold);
+  border: 1.5px solid var(--sunset-gold);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.audio-upload-btn:hover {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.audio-upload-success-toast {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1.5px solid #22c55e;
+  color: #4ade80;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reset-song-link {
+  background: none;
+  border: none;
+  color: #fca5a5;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: underline;
+}
+
+.reset-song-link:hover {
+  color: #ef4444;
+}
+
+.meta-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.custom-track-badge {
+  display: inline-block;
+  background: var(--sunset-crimson);
+  color: #fff;
+  font-family: 'Bangers', cursive;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.reset-track-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.78rem;
+  padding: 4px 10px;
+}
+
+.reset-track-btn:hover {
+  background: var(--sunset-crimson);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Chapter 6: Grand Finale & Letter
+   ========================================================================== */
+.final-stage {
+  width: 100%;
+}
+
+.final-narrator-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.grand-finale-card {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: var(--shadow-comic-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.finale-artwork {
+  position: relative;
+  border: 3.5px solid var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-comic);
+}
+
+.finale-img {
+  width: 100%;
+  display: block;
+  max-height: 380px;
+  object-fit: cover;
+}
+
+.finale-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.finale-letter-body {
+  font-size: 1.15rem;
+  line-height: 1.9;
+}
+
+.salutation {
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  color: var(--sunset-crimson);
+  margin-bottom: 14px;
+}
+
+.sign-off {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  margin-top: 14px;
+}
+
+.closing-celebration {
+  text-align: center;
+  border-top: 2px dashed rgba(18, 15, 26, 0.2);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.closing-crown {
+  font-size: 2.8rem;
+}
+
+.closing-title {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  color: var(--sunset-crimson);
+}
+
+.finale-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.kiss-btn {
+  background: var(--neon-red);
+  color: #fff;
+}
+
+.kiss-btn:hover {
+  background: #e61e53;
+}
+
+.replay-btn {
+  background: var(--sunset-gold);
+}
+
+.hearts-burst-banner {
+  background: #ffe3ec;
+  color: #c9184a;
+  border: 2px solid #c9184a;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* ==========================================================================
+   Full Graphic Novel Storyboard Modal
+   ========================================================================== */
+.comic-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 16, 0.9);
+  backdrop-filter: blur(8px);
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.comic-modal-container {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), var(--shadow-comic-lg);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.comic-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-title-wrap h2 {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.05em;
+  color: #120f1a;
+}
+
+.modal-close-btn {
+  background: var(--sunset-crimson);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.modal-sub-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.modal-sub {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0;
+  flex: 1;
+  min-width: 240px;
+}
+
+.board-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.board-zoom-btn {
+  background: var(--parchment-dim);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+  transition: background 0.15s, transform 0.1s;
+}
+
+.board-zoom-btn:hover {
+  background: var(--sunset-gold);
+  transform: translateY(-1px);
+}
+
+.board-zoom-btn.reset {
+  font-size: 0.78rem;
+  padding: 4px 8px;
+}
+
+.master-board-wrapper {
+  border: 3.5px solid var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-comic);
+  background: #090710;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.master-board-scroll-area {
+  max-height: 52vh;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #080611;
+}
+
+.master-board-img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.25s ease-out;
+}
+
+.storyboard-panel-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.panel-chip-btn {
+  background: var(--parchment-dim);
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.panel-chip-btn:hover, .panel-chip-btn.active {
+  background: var(--sunset-gold);
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.panel-spotlight-card {
+  background: #fff;
+  border: 3.5px solid var(--ink);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-comic-lg);
+  margin-top: 10px;
+}
+
+.spotlight-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.spotlight-tag {
+  display: inline-block;
+  background: var(--sunset-orange);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.spotlight-close-chip {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.spotlight-close-chip:hover {
+  color: var(--sunset-crimson);
+}
+
+.spotlight-body-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 600px) {
+  .spotlight-body-layout {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+}
+
+.spotlight-img-box {
+  position: relative;
+  border: 2.5px solid var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #080611;
+  box-shadow: var(--shadow-comic);
+}
+
+.spotlight-panel-img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.spotlight-hd-label {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(18, 15, 26, 0.9);
+  color: var(--sunset-gold);
+  border: 1px solid var(--sunset-gold);
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.spotlight-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spotlight-title {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #120f1a;
+}
+
+.spotlight-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+.spotlight-quote {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+  margin: 4px 0 0;
+  border-left: 3.5px solid var(--sunset-crimson);
+  background: rgba(255, 200, 59, 0.15);
+  padding: 6px 12px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ==========================================================================
+   THE LEGENDARY YES vs NO EVASIVE ARENA & VIP SURPRISE
+   ========================================================================== */
+.evasive-arena-card {
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 18px;
+  padding: 22px 18px;
+  margin: 18px 0;
+  box-shadow: var(--shadow-comic-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.arena-top-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sunset-crimson);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.arena-question {
+  margin: 0 0 14px;
+  font-family: 'Bangers', cursive;
+  font-size: clamp(1.4rem, 4.5vw, 1.95rem);
+  letter-spacing: 0.04em;
+  color: #120f1a;
+  line-height: 1.25;
+}
+
+.arena-guide-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--parchment-dim);
+  border: 2.5px solid var(--ink);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+}
+
+.arena-speech-bubble {
+  flex: 1;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+}
+
+.arena-speech-bubble.celebration {
+  background: #fff0f3;
+  border-color: #ff385c;
+}
+
+.arena-speech-bubble.tender {
+  background: #f0fdf4;
+  border-color: #10b981;
+}
+
+.speech-author {
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--sunset-crimson);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.speech-quote {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #120f1a;
+  line-height: 1.3;
+}
+
+.celebration-shout {
+  margin: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: #e11d48;
+}
+
+.tender-quote {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.championship-announcement, .tender-pivot-announcement {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Bounded Playground Area for Dodging NO Button */
+.buttons-playground-area {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  background: rgba(18, 15, 26, 0.05);
+  border: 2px dashed rgba(18, 15, 26, 0.25);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  overflow: visible;
+  padding: 10px;
+}
+
+.yes-choice-btn {
+  background: linear-gradient(135deg, #ff3366, #ff7626) !important;
+  color: #fff !important;
+  font-size: 1.35rem !important;
+  padding: 12px 28px !important;
+  border-radius: 14px !important;
+  z-index: 5;
+  box-shadow: 4px 4px 0 var(--ink) !important;
+  cursor: pointer;
+}
+
+.yes-choice-btn:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 6px 6px 0 var(--ink) !important;
+}
+
+.no-choice-btn {
+  background: var(--parchment-dim) !important;
+  color: var(--ink) !important;
+  font-size: 1.15rem !important;
+  padding: 10px 22px !important;
+  border-radius: 12px !important;
+  cursor: pointer;
+  z-index: 4;
+  user-select: none;
+  touch-action: none;
+}
+
+.dodge-hint-text {
+  font-size: 0.88rem;
+  color: #666;
+  text-align: center;
+  margin: 10px 0 0;
+  font-style: italic;
+}
+
+/* Confetti & Victory Stamp */
+.confetti-hearts-container {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.victory-comic-stamp {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 3.5px solid var(--ink);
+  border-radius: 14px;
+  padding: 10px 24px;
+  font-family: 'Bangers', cursive;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.06em;
+  box-shadow: var(--shadow-comic-lg);
+  transform: rotate(-3deg);
+  animation: stampBounce 0.5s ease-out;
+}
+
+@keyframes stampBounce {
+  0% { transform: scale(0.4) rotate(15deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(-5deg); }
+  100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+/* VIP Boyfriend Perks Pass */
+.vip-surprise-card {
+  background: #fffdf5;
+  border: 4px solid var(--ink);
+  border-radius: 18px;
+  padding: 24px 20px;
+  box-shadow: 0 0 35px rgba(255, 200, 59, 0.4), var(--shadow-comic-lg);
+  margin-top: 14px;
+  position: relative;
+}
+
+.vip-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 2.5px dashed rgba(18, 15, 26, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.vip-seal {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--sunset-gold);
+  flex-shrink: 0;
+}
+
+.vip-tag {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+.vip-title {
+  margin: 4px 0 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--sunset-crimson);
+}
+
+.vip-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.vip-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.perk-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.perk-info strong {
+  display: block;
+  font-size: 1rem;
+  color: #120f1a;
+  margin-bottom: 2px;
+}
+
+.perk-info p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.vip-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 2px dashed rgba(18, 15, 26, 0.2);
+  padding-top: 14px;
+}
+
+.vip-signoff {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sunset-crimson);
+}
+
+/* ==========================================================================
+   THE MENACE GUIDE: FLOATING COMPANION WIDGET
+   ========================================================================== */
+.menace-guide-floating-widget {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.menace-speech-toast {
+  pointer-events: auto;
+  position: relative;
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 12px 16px;
+  max-width: 290px;
+  box-shadow: var(--shadow-comic-lg);
+  margin-bottom: 4px;
+}
+
+.toast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  border-bottom: 1.5px dashed rgba(18, 15, 26, 0.2);
+  padding-bottom: 3px;
+}
+
+.toast-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--sunset-crimson);
+}
+
+.toast-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  display: grid;
+  place-items: center;
+  padding: 2px;
+}
+
+.toast-close-btn:hover {
+  color: #000;
+}
+
+.toast-text {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #17141f;
+}
+
+.toast-tail {
+  position: absolute;
+  bottom: -11px;
+  right: 28px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 11px solid var(--ink);
+}
+
+.toast-tail::after {
+  content: '';
+  position: absolute;
+  top: -11px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--parchment);
+}
+
+.menace-mascot-anchor {
+  pointer-events: auto;
+}
+
+.mascot-avatar-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+  filter: drop-shadow(4px 4px 0 var(--ink));
+}
+
+.mascot-avatar-btn:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.mascot-avatar-btn:active {
+  transform: scale(0.96);
+}
+
+.mascot-badge-pill {
+  background: var(--sunset-gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin-top: -6px;
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 640px) {
+  .comic-say-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .guide-character {
+    width: 90px !important;
+    height: 120px !important;
+  }
+  .bubble-tail {
+    bottom: auto;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid var(--ink);
+    border-top: none;
+  }
+  .bubble-tail::after {
+    top: 4px;
+    left: -7px;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-bottom: 12px solid var(--parchment);
+    border-top: none;
+  }
+  .chapter-pip-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+  .brand-title {
+    display: none;
+  }
+  .storyboard-toggle-btn .btn-label {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Huey, Riley & Granddad Welcome Crew Backdrop Layer
+   ========================================================================== */
+.welcome-crew-backdrop-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+  transition: opacity 0.6s ease;
+}
+
+.welcome-crew-backdrop-container.focus-welcome {
+  opacity: 1;
+}
+
+.welcome-crew-backdrop-container.ambient-welcome {
+  opacity: 0.35;
+  filter: contrast(0.95) brightness(0.9);
+}
+
+.crew-atmosphere-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 90%, rgba(255, 104, 38, 0.18) 0%, rgba(58, 26, 69, 0.15) 50%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Individual Character Wrappers */
+.crew-member {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.crew-member:hover {
+  filter: drop-shadow(0 14px 24px rgba(255, 200, 59, 0.45));
+}
+
+.character-interactive-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- ROBERT FREEMAN (GRANDDAD) ---
+   Positioned on the bottom-left flank */
+.crew-member.granddad-wrapper {
+  bottom: 0;
+  left: 2%;
+  z-index: 5;
+}
+
+.crew-img.granddad-img {
+  width: clamp(180px, 22vw, 320px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform-origin: bottom center;
+}
+
+/* --- HUEY FREEMAN ---
+   Positioned composed in the mid-background / terrace corner */
+.crew-member.huey-wrapper {
+  bottom: 12%;
+  left: clamp(210px, 24vw, 350px);
+  z-index: 4;
+}
+
+.crew-img.huey-img {
+  width: clamp(140px, 17vw, 240px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform-origin: bottom center;
+}
+
+/* --- RILEY FREEMAN ---
+   Positioned on the bottom-right flank */
+.crew-member.riley-wrapper {
+  bottom: 0;
+  right: 2%;
+  z-index: 5;
+}
+
+.crew-img.riley-img {
+  width: clamp(160px, 20vw, 290px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform-origin: bottom center;
+}
+
+/* Speech bubbles tailored for each character's comic dialogue */
+.crew-speech-bubble {
+  position: absolute;
+  background: var(--parchment);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  box-shadow: 4px 4px 0 var(--ink);
+  pointer-events: none;
+  max-width: 200px;
+  text-align: center;
+  z-index: 10;
+}
+
+.crew-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 9px 8px 0;
+  border-style: solid;
+  border-color: var(--parchment) transparent transparent;
+  display: block;
+  width: 0;
+}
+
+.crew-speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 12px 10px 0;
+  border-style: solid;
+  border-color: var(--ink) transparent transparent;
+  display: block;
+  width: 0;
+}
+
+.left-bubble {
+  top: -45px;
+  left: 50%;
+  transform: translateX(-35%);
+}
+
+.center-bubble {
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fdf6e2;
+}
+
+.right-bubble {
+  top: -45px;
+  right: 50%;
+  transform: translateX(35%);
+}
+
+/* Responsive adjustments so content remains crisp on tablets and phones */
+@media (max-width: 1100px) {
+  .crew-member.granddad-wrapper {
+    left: -20px;
+    opacity: 0.85;
+  }
+  .crew-member.riley-wrapper {
+    right: -15px;
+    opacity: 0.85;
+  }
+  .crew-member.huey-wrapper {
+    left: 140px;
+    bottom: 8%;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile screens, tuck characters gracefully along the bottom edge so cards stay 100% unobstructed */
+  .crew-img.granddad-img {
+    width: 130px;
+  }
+  .crew-img.riley-img {
+    width: 120px;
+  }
+  .crew-img.huey-img {
+    width: 100px;
+  }
+  .crew-member.huey-wrapper {
+    left: 80px;
+    bottom: 4%;
+  }
+  .crew-speech-bubble {
+    display: none; /* Keep mobile view clean and readable */
+  }
+  .welcome-crew-backdrop-container.focus-welcome {
+    opacity: 0.7;
+  }
+}
+
+/* ==========================================================================
+   Welcome Mama Callout Banner (Chapter 1)
+   ========================================================================== */
+.welcome-mama-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(255, 104, 38, 0.95), rgba(220, 38, 38, 0.92));
+  color: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  box-shadow: 4px 4px 0 var(--ink);
+  margin-bottom: 6px;
+  text-shadow: 1.5px 1.5px 0 var(--ink);
+}
+
+/* ==========================================================================
+   Finale Dedication Header (To Celine From Maurice)
+   ========================================================================== */
+.finale-dedication-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--sunset-gold);
+  border: 2.5px solid var(--sunset-gold);
+  border-radius: 12px;
+  padding: 10px 18px;
+  margin: 18px 0 24px;
+  font-family: 'Bangers', cursive;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 0 #000;
+}
+
+.dedication-to {
+  color: #ff94c2;
+}
+
+.dedication-divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dedication-from {
+  color: #ffc83b;
+}
+
